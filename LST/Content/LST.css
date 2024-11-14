@@ -1,0 +1,155 @@
+﻿body {
+    font-family: arial, sans-serif;
+font-size: 15px;
+}
+
+ .main
+{
+         padding: 0px 12px;
+		 margin: 12px 8px 8px 8px;
+         min-height: 100%;	
+         min-width: 100%;
+  
+}
+
+
+
+ .leftpad
+{
+    padding-left: 5em;
+}
+
+ .rightalign
+ {
+     text-align:right;
+ }
+
+ .leftalign
+ {
+     text-align:left;
+ }
+
+ .ui-datepicker-trigger 
+ {
+    margin-left:5px;
+    margin-bottom: -3px;
+ }
+
+    .ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
+      color: steelblue;
+     font-size: 16px;
+      font-weight: bold;
+}
+
+.ui-dialog-titlebar-close{display:none;}
+
+
+ .errlabels
+{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:x-small;
+	color:Red;
+	font-weight:bold;
+}
+
+ .txtWidth
+{
+  
+    width:250px;    
+}
+ .txtnamewidth
+{
+	width:150px;
+}
+
+ .txtemailwidth
+ {
+     width:50%;
+
+ }
+
+ .txtMulti{
+     width:60%;
+     height:100px;
+ }
+
+ 
+
+ .spanrequired
+{
+    font-style: italic;
+    font-weight: bold;
+    color:Red;
+}
+
+ .formattext
+{
+	font-family:Verdana;
+	font-size:x-small;
+	color:#465c71;
+	font-weight:bold;
+}
+
+ .result-dialog{
+    height: 450px;
+    overflow: auto; /* Or scroll, depending on your needs*/
+    width: 400px;
+}
+
+ .trhead
+ {
+     background-color : #337ab7;
+     color: white;
+     font-weight: bold;
+ }
+
+ .tralternate
+ {
+     background-color:#E0FDFF
+      ;
+ }
+
+ .labelfieldleft
+ {
+     font-weight: 600;
+ }
+
+ .subheading{
+     font-style:oblique;
+ }
+  legend { color: steelblue; font-size:25px }
+
+
+  .navbar-brand
+  {
+      font-weight:bold;
+  }
+
+  .navbar-nav
+  {
+      font-weight:bold;
+      font-size:16px;
+  }
+
+   .cpHeader
+        {
+            color: white;
+            background-color: steelblue;
+            font: bold 16px auto  Arial, Helvetica, sans-serif;         
+           
+            width:450px;
+            height:18px;
+            padding: 4px;            
+        }
+
+    .centerHeaderText th {
+        text-align: center;
+        
+    }
+
+    .ddinline
+    {
+        display:inline;
+    }
+
+   

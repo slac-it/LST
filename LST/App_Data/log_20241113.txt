@@ -1,0 +1,81 @@
+2024-11-13 09:18:35,012 [87] ERROR LST.Data.Data_Util - Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-01017: invalid username/password; logon denied
+   at OracleInternal.ConnectionPool.PoolManager`3.Get(ConnectionString csWithDiffOrNewPwd, Boolean bGetForApp, CriteriaCtx criteriaCtx, String affinityInstanceName, Boolean bForceMatch)
+   at OracleInternal.ConnectionPool.OraclePoolManager.Get(ConnectionString csWithNewPassword, Boolean bGetForApp, CriteriaCtx criteriaCtx, String affinityInstanceName, Boolean bForceMatch)
+   at OracleInternal.ConnectionPool.OracleConnectionDispenser`3.Get(ConnectionString cs, PM conPM, ConnectionString pmCS, SecureString securedPassword, SecureString securedProxyPassword, CriteriaCtx criteriaCtx)
+   at Oracle.ManagedDataAccess.Client.OracleConnection.Open()
+   at LST.Data.Data_Util.GetReader(String sqlText, OracleCommand cmdPm) in C:\APPS_SVN\LST\LST\Data\Data_Util.cs:line 138
+2024-11-13 09:18:55,605 [87] ERROR LST.Business.Common_Util - System.NullReferenceException: Object reference not set to an instance of an object.
+   at LST.Business.Common_Util.GetUserId() in C:\APPS_SVN\LST\LST\Business\Common_Util.cs:line 63
+2024-11-13 09:36:23,702 [7] ERROR LST.Data.Data_Util - Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-01017: invalid username/password; logon denied
+   at OracleInternal.ConnectionPool.PoolManager`3.Get(ConnectionString csWithDiffOrNewPwd, Boolean bGetForApp, CriteriaCtx criteriaCtx, String affinityInstanceName, Boolean bForceMatch)
+   at OracleInternal.ConnectionPool.OraclePoolManager.Get(ConnectionString csWithNewPassword, Boolean bGetForApp, CriteriaCtx criteriaCtx, String affinityInstanceName, Boolean bForceMatch)
+   at OracleInternal.ConnectionPool.OracleConnectionDispenser`3.Get(ConnectionString cs, PM conPM, ConnectionString pmCS, SecureString securedPassword, SecureString securedProxyPassword, CriteriaCtx criteriaCtx)
+   at Oracle.ManagedDataAccess.Client.OracleConnection.Open()
+   at LST.Data.Data_Util.GetReader(String sqlText, OracleCommand cmdPm) in C:\APPS_SVN\LST\LST\Data\Data_Util.cs:line 138
+2024-11-13 10:17:12,443 [7] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:12,572 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:12,624 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:12,668 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:12,719 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:12,763 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:12,807 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:12,851 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:12,897 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:12,941 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:12,985 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:13,028 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:13,073 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:13,118 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:13,164 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:13,216 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:13,257 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:13,303 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:13,353 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:13,398 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:14,480 [7] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:14,526 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:14,565 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:14,606 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:14,649 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:14,693 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:14,738 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:14,780 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:14,828 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:14,872 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:14,916 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:14,963 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:15,017 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:15,061 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:15,105 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:15,149 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:15,198 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:15,239 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:15,277 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:15,327 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:20,383 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:20,430 [12] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:20,476 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:20,520 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:20,562 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:20,604 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:20,648 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:20,692 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:20,736 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:20,779 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:20,821 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:20,864 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:20,909 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:20,952 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:20,994 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:21,036 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:21,083 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:21,125 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:21,169 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:17:21,213 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 10:54:55,234 [7] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 14:13:56,768 [7] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 14:14:58,119 [9] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 14:26:15,427 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 14:26:17,635 [26] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 14:26:19,730 [8] ERROR LST.Business.Common_Util - User ID is empty
+2024-11-13 14:26:21,785 [7] ERROR LST.Business.Common_Util - User ID is empty

@@ -1,0 +1,88 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="LST.Master.cs" Inherits="LST.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title><%: Page.Title %> - Laser Safety</title>
+    <link href="~/Content/Site.css" rel="stylesheet" /> 
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <asp:PlaceHolder runat="server">        
+        <script src="<%: ResolveUrl("~/Scripts/modernizr-2.6.2.js") %>"></script>
+    </asp:PlaceHolder>
+    <meta name="viewport" content="width=device-width" />
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+    <link href="Content/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="Content/LST.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src='<%# ResolveUrl("~/Scripts/jquery.js")%>'></script>
+    <script type="text/javascript" src='<%# ResolveUrl("~/Scripts/jquery-1.10.2.min.js")%>'></script>
+    <script type="text/javascript" src='<%# ResolveUrl("~/Scripts/jquery-ui.min.js") %>'></script>
+    <script type="text/javascript" src='<%# ResolveUrl("~/Scripts/bootstrap.min.js") %>'></script>
+    <script type="text/javascript" src='<%# ResolveUrl("~/Scripts/LST.js") %>'></script>
+   
+  <style type="text/css">
+      .navbar-inverse
+      {
+          background-color:black;
+      }
+      .navbar-inverse .navbar-brand {
+  color: white;
+  background-color:black;
+}
+  </style>
+</head>
+<body>
+    <form runat="server"  >
+    <asp:ScriptManager runat="server">
+        <Scripts>
+            <asp:ScriptReference Name="jquery" />
+            <asp:ScriptReference Name="jquery.ui.combined" /> 
+         </Scripts>
+   </asp:ScriptManager>
+  
+     <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <span class="navbar-brand" runat="server" >Laser Safety</span>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="<%= MatchesToCurrentLocation("default.aspx") %>"><a id="ahome" runat="server" href="~/Default.aspx">Home</a></li>
+                        <li class="<%= MatchesToCurrentLocation("approvalrequest.aspx")%>"><a id="aRequest" runat="server" href="~/ApprovalRequest.aspx">Request Approval</a></li>
+                         <li class="<%= MatchesToCurrentLocation("reports.aspx")%>"><a id="aReports" runat="server" href="~/Reports.aspx">Reports</a></li>
+                         <li class="<%= MatchesToCurrentLocation("admin.aspx")%>" ><a id="aAdmin" runat="server" href="~/Admin.aspx">Admin</a></li>
+                         <li class="<%= MatchesToCurrentLocation("emailtemplate.aspx")%>" ><a id="aEmail" runat="server" href="~/EmailTemplate.aspx">Email </a></li>                       
+                    </ul>
+                  
+                </div>
+
+            </div>
+           
+        </div>
+       
+        <div class="main">
+            <div style="float:right;" id="DivName" runat="server" >
+              <b>Welcome,  <%= UserName %></b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <br />
+            <div style="text-align:center;" runat="server" visible="false" id="DivTest"><asp:Label ID="LblMsgTest" runat="server" CssClass="alert-danger" Text="This is a test system!!!" Font-Size="X-Large"></asp:Label>
+            <br />
+            </div>
+
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                 
+            </asp:ContentPlaceHolder>
+         
+        </div></div>
+  
+    </form>
+</body>
+</html>
