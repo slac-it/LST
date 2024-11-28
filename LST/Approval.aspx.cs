@@ -109,7 +109,7 @@ namespace LST
                 int _workerId = objDml.GetWorkerId(objId);
                 int _workerslacId = objDml.GetSlacId(_workerId);
 
-                objRoles.GetUserRole(objCommon.GetUserId().ToString(), _facilityId, _workerslacId);
+                objRoles.GetUserRole(HttpContext.Current.Session["LoginSID"].ToString(), _facilityId, _workerslacId);
 
                 //if (objRoles.IsSLSO || objRoles.IsLSOrAlt()  || objRoles.IsAltSLSO || objRoles.IsAdminSvr || objRoles.IsAltSVR || objRoles.IsAdmin
                 //    || (_workerslacId.ToString() == objCommon.GetUserId()))
@@ -414,7 +414,7 @@ namespace LST
             Business.Approval objApproval = new Business.Approval();
 
             objApproval.MapId = MapId;
-            objApproval.ApproverId = Convert.ToInt32(objCommon.GetUserId());
+            objApproval.ApproverId = Convert.ToInt32(HttpContext.Current.Session["LoginSID"]);
             objApproval.StatusId = statusId;
             objApproval.Comments = objCommon.ReplaceSC(TxtComments.Text);
             objApproval.ApproverType = approverType;

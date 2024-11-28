@@ -68,7 +68,7 @@ namespace LST
             objEmail.ListId = Convert.ToInt32(DdlEmailList.SelectedValue);
             objEmail.Subject = objCommon.ReplaceSC(TxtSubject.Text);
             objEmail.BodyMsg =  objCommon.ReplaceWordChars(objCommon.ReplaceSC(TxtBody.Text));
-            objEmail.CreatedBy = objCommon.GetUserId();
+            objEmail.CreatedBy = HttpContext.Current.Session["LoginSID"].ToString();
 
             int _result = objDml.CustomEmail(objEmail);
             if (_result == 0)

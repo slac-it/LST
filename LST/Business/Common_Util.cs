@@ -29,75 +29,75 @@ namespace LST.Business
             return (rdrObj.Equals(DBNull.Value))? "" : rdrObj.ToString();
         }
 
-       public string GetUserId()
-        {
-            string _userId = null;
-            string _currentUser = null;
-            string _serVar = null;
-            string _userName = null;
-            int _pos = 0;
-            string _sqlSelect = null;
+       //public string GetUserId()
+       // {
+       //     string _userId = null;
+       //     string _currentUser = null;
+       //     string _serVar = null;
+       //     string _userName = null;
+       //     int _pos = 0;
+       //     string _sqlSelect = null;
 
-            _userId = Convert.ToString(HttpContext.Current.Session["EmpID"]);
+       //     _userId = Convert.ToString(HttpContext.Current.Session["EmpID"]);
 
-            if (!string.IsNullOrEmpty(_userId))
-            {
-                HttpContext.Current.Session["EmpID"] = _userId;
-                _currentUser = _userId;
-            }
-            else
-            {
-                _serVar =  HttpContext.Current.Request.ServerVariables["LOGON_USER"];
-                _pos = _serVar.LastIndexOf("\\");
-                _userName = _serVar.Substring(_pos + 1);
+       //     if (!string.IsNullOrEmpty(_userId))
+       //     {
+       //         HttpContext.Current.Session["EmpID"] = _userId;
+       //         _currentUser = _userId;
+       //     }
+       //     else
+       //     {
+       //         _serVar =  HttpContext.Current.Request.ServerVariables["LOGON_USER"];
+       //         _pos = _serVar.LastIndexOf("\\");
+       //         _userName = _serVar.Substring(_pos + 1);
 
-                _sqlSelect = "select max(but_sid) from but where but_kid = upper(:UserName)";
+       //         _sqlSelect = "select max(but_sid) from but where but_kid = upper(:UserName)";
 
-                using (OracleCommand _cmdUser = new OracleCommand())
-                {
-                    _cmdUser.Parameters.Add(":UserName", OracleDbType.Varchar2).Value = _userName;
-                    using (OracleDataReader _drUser = objData.GetReader(_sqlSelect, _cmdUser))
-                    {
-                        try
-                        {
-                            if (_drUser.HasRows)
-                            {
-                                while (_drUser.Read())
-                                {
-                                    _userId = Convert.ToString(_drUser[0]);
-                                }
-                            }
-                            if (_userId == "")
-                            {
-                                Log.Error("User ID is empty");
-                                _userId = "err";
-                            }
+       //         using (OracleCommand _cmdUser = new OracleCommand())
+       //         {
+       //             _cmdUser.Parameters.Add(":UserName", OracleDbType.Varchar2).Value = _userName;
+       //             using (OracleDataReader _drUser = objData.GetReader(_sqlSelect, _cmdUser))
+       //             {
+       //                 try
+       //                 {
+       //                     if (_drUser.HasRows)
+       //                     {
+       //                         while (_drUser.Read())
+       //                         {
+       //                             _userId = Convert.ToString(_drUser[0]);
+       //                         }
+       //                     }
+       //                     if (_userId == "")
+       //                     {
+       //                         Log.Error("User ID is empty");
+       //                         _userId = "err";
+       //                     }
  
-                        }
-                        catch (NullReferenceException exNull)
-                        {
-                            Log.Error(exNull);
-                            _userId = "err";
-                        }
-                        catch (Exception ex)
-                        {
-                            Log.Error(ex);
-                            _userId = "err";
-                        }
+       //                 }
+       //                 catch (NullReferenceException exNull)
+       //                 {
+       //                     Log.Error(exNull);
+       //                     _userId = "err";
+       //                 }
+       //                 catch (Exception ex)
+       //                 {
+       //                     Log.Error(ex);
+       //                     _userId = "err";
+       //                 }
 
-                    }
+       //             }
                      
                        
-                        HttpContext.Current.Session["EmpID"] = _userId;
-                        _currentUser = _userId;
-                }
+       //                 HttpContext.Current.Session["EmpID"] = _userId;
+       //                 _currentUser = _userId;
+       //         }
                  
 
                
-            }
-            return _currentUser;
+       //     }
+       //     return _currentUser;
                
-        }
+       // }
 
        public OracleDataReader GetMatchingEmployees(string Owner)
        {

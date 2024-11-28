@@ -36,7 +36,7 @@ namespace LST.UserControls
 
                 if (UserType == "SLSO")
                 {
-                    _check = objRoles.CheckifinRole(Convert.ToInt32(objCommon.GetUserId()), Business.UserRoles.UserType.ALTSLSO, 0, 0);
+                    _check = objRoles.CheckifinRole(Convert.ToInt32(HttpContext.Current.Session["LoginSID"]), Business.UserRoles.UserType.ALTSLSO, 0, 0);
                     if (_check)
                     {
                         ApproverType = " SLSO (or as a designated alternate SLSO) ";
@@ -59,7 +59,7 @@ namespace LST.UserControls
                         SpnDlso.Visible = false;
                         SpnInfo.Visible = true;
                         ApproverType = " LSO ";
-                        _check = objRoles.CheckifinRole(Convert.ToInt32(objCommon.GetUserId()), Business.UserRoles.UserType.ALTLSO, 0, 0);
+                        _check = objRoles.CheckifinRole(Convert.ToInt32(HttpContext.Current.Session["LoginSID"]), Business.UserRoles.UserType.ALTLSO, 0, 0);
                         if (_check)
                         {
                             ApproverType = " LSO (or as a designated alternate LSO) ";
@@ -74,7 +74,7 @@ namespace LST.UserControls
                 }
                 else if (UserType == "ADMSVR")
                 {
-                    _check = objRoles.CheckifinRole(Convert.ToInt32(objCommon.GetUserId()), Business.UserRoles.UserType.ALTSVR, 0, 0);
+                    _check = objRoles.CheckifinRole(Convert.ToInt32(HttpContext.Current.Session["LoginSID"]), Business.UserRoles.UserType.ALTSVR, 0, 0);
                     if (_check)
                     {
                         ApproverType = "Admin Supervisor (or as a designated alternate Supervisor) ";

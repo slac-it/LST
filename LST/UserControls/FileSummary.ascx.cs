@@ -71,7 +71,7 @@ namespace LST.UserControls
             if (e.CommandName == "delete")
             {
                 string _result = "";
-                _result = objDml.DeleteAttachment(_attachmentId, objCommon.GetUserId(), ObjType);
+                _result = objDml.DeleteAttachment(_attachmentId, HttpContext.Current.Session["LoginSID"].ToString(), ObjType);
                 BindFileGrid();
             }
         }

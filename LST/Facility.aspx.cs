@@ -409,14 +409,14 @@ namespace LST
             if (mode == "edit")
             {
                 objLSTFac.FacilityId = FacId;
-                objLSTFac.ModifiedBy = objCommon.GetUserId();
+                objLSTFac.ModifiedBy = HttpContext.Current.Session["LoginSID"].ToString();
                 int _result = objDml.UpdateFacility(objLSTFac);
                 if (_result == 0) { LblFacMsg.Text = "Facility - " + objLSTFac.FacilityName + " successfully updated"; }
                 else { LblFacMsg.Text = "Error! " + objLSTFac.FacilityName + " could not be updated"; }
             }
             else
             {
-                objLSTFac.CreatedBy = objCommon.GetUserId();
+                objLSTFac.CreatedBy = HttpContext.Current.Session["LoginSID"].ToString();
                 int _facilityId = objDml.CreateFacility(objLSTFac);
                 if (_facilityId != 0) { LblFacMsg.Text = "Facility - " + objLSTFac.FacilityName + " successfully added"; }
                 else { LblFacMsg.Text = "Error! " + objLSTFac.FacilityName + " could not be added"; }
@@ -481,7 +481,7 @@ namespace LST
             HdnCoordId.Value = Server.HtmlEncode(objFac.CoordId.ToString());
             HdnPMId.Value = Server.HtmlEncode(objFac.PMId.ToString());
             //Todo: Hide this link if already SLSO requested and it is in pending approval status
-            if (objFac.SLSOSlacId.Equals(objCommon.GetUserId()))  //if the user is SLSO
+            if (objFac.SLSOSlacId.Equals(HttpContext.Current.Session["LoginSID"]))  //if the user is SLSO
             {
                 //Check if there is a request for approval pending
                 bool _isApprInProg = objDml.CheckIfFacApprovalInProg(objFac.FacilityId);

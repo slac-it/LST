@@ -6,6 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>
     </ProductVersion>
+    <LangVersion>preview</LangVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{9EC41995-C261-43D1-82F8-E6FE63591320}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -53,10 +54,8 @@
       <HintPath>..\packages\AntiXSS.4.3.0\lib\net40\HtmlSanitizationLibrary.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\log4net.2.0.5\lib\net40-full\log4net.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="log4net, Version=3.0.3.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.3.0.3\lib\net462\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Oracle.ManagedDataAccess">
@@ -133,13 +132,14 @@
   <ItemGroup>
     <Content Include="Admin.aspx" />
     <Content Include="Approval.aspx" />
+    <Content Include="bin\log4net.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="EmailTemplate.aspx" />
     <Content Include="FacilityApprovalRequest.aspx" />
     <Content Include="ApprovalRequest.aspx" />
     <Content Include="bin\AspNet.ScriptManager.jQuery.dll" />
     <Content Include="bin\AspNet.ScriptManager.jQuery.UI.Combined.dll" />
-    <Content Include="bin\log4net.dll" />
-    <Content Include="bin\log4net.xml" />
     <Content Include="bin\LST.dll" />
     <Content Include="bin\LST.pdb" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -264,6 +264,7 @@
     <Content Include="bin\LST.dll.config" />
     <Content Include="log4net.config">
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="UserControls\FileSummary.ascx" />
     <Content Include="UserControls\TrainingSummary.ascx" />
@@ -316,6 +317,7 @@
       <DependentUpon>Approval.aspx</DependentUpon>
     </Compile>
     <Compile Include="Business\DynamicTemplate.cs" />
+    <Compile Include="Business\SSO_Util.cs" />
     <Compile Include="EmailTemplate.aspx.cs">
       <DependentUpon>EmailTemplate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -535,7 +537,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>57533</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/LST</IISUrl>
+          <IISUrl>https://dev-win03.slac.stanford.edu/LST/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

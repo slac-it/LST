@@ -7,6 +7,8 @@
 //  This is the master page of Laser safety tool.
 //
 
+using log4net;
+using LST.SSO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,14 +25,32 @@ namespace LST
         public string UserName;
         Business.Common_Util objCommon = new Business.Common_Util();
         Business.UserRoles objRoles = new Business.UserRoles();
+        SSO_Util objSSO = new SSO_Util();
+        protected static readonly ILog Log = LogManager.GetLogger(typeof(SiteMaster));
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string _userId;
+            string _userId = string.Empty;
 
-            _userId = objCommon.GetUserId();
+            if(HttpContext.Current.Session["LoginSID"] != null)
+            {
+                _userId = HttpContext.Current.Session["LoginSID"].ToString();
+            }
+            else
+            {
+                if(objSSO.LoginSID != "")
+                {
+                    _userId = objSSO.LoginSID;
+                }
+                else
+                {
+                    Response.Redirect("Error.aspx");
+                }
+            }
+            Log.Info("Site Master - Login SID: " + _userId);
 
-            if (_userId == "err") { Response.Redirect("Error.aspx"); }
+            //if (_userId == "err") { Response.Redirect("Error.aspx"); }
 
             if (_userId != "")
             {
@@ -55,7 +75,19 @@ namespace LST
         //Admin supervisor or alternate have access to all except admin
         private void SetAccessibility()
         {
-            objRoles.GetUserRole(objCommon.GetUserId().ToString(), 0);
+            string loginSID = String.Empty;
+            if (HttpContext.Current.Session["LoginSID"] != null)
+            {
+                loginSID = HttpContext.Current.Session["LoginSID"].ToString();
+            }
+            else
+            {
+                loginSID = objSSO.LoginSID;
+            }
+
+            Log.Info("Site Master - SetAccessibility - Login SID: " + loginSID);
+
+            objRoles.GetUserRole(loginSID, 0);
 
             if (( objRoles.IsLSOrAlt() || objRoles.IsAdmin || objRoles.IsDLSO))
             {

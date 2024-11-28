@@ -161,14 +161,14 @@ namespace LST.UserControls
 
                 if (_error == false)
                 {
-                    _result = objDml.UpdateOJT(_mapId, Convert.ToDateTime(TxtOJT.Text), objCommon.GetUserId());
+                    _result = objDml.UpdateOJT(_mapId, Convert.ToDateTime(TxtOJT.Text), HttpContext.Current.Session["LoginSID"].ToString());
                         if (_result != 0)
                         {
                             LblMsg2.Text = "Error updating OJT Completion Date";
                               }
                         else
                         {
-                            _resultSOP = objDml.UpdateSOP(_mapId, _dtSOP, objCommon.GetUserId());
+                            _resultSOP = objDml.UpdateSOP(_mapId, _dtSOP, HttpContext.Current.Session["LoginSID"].ToString());
                             if (_resultSOP != 0)
                             {
                                 LblMsg2.Text = "Error updating SOP review Date for this facility";
@@ -281,7 +281,7 @@ namespace LST.UserControls
                 int rowIndex = int.Parse(e.CommandArgument.ToString());
                 int _mapId = Convert.ToInt32(this.GvWorkers.DataKeys[rowIndex]["MAP_ID"]);
                 string _resultD = "";
-                _resultD = objDml.DeleteObject(_mapId, objCommon.GetUserId(), "userfac");
+                _resultD = objDml.DeleteObject(_mapId, HttpContext.Current.Session["LoginSID"].ToString(), "userfac");
                 FillWorkers();
                 KeepGridExpanded();
                 OnAssociationDeleted(); //call the delegate

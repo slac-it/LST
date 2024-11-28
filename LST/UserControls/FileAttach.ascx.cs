@@ -118,7 +118,7 @@ namespace LST.UserControls
 
             try
             {
-                _fileid = objDml.InsertFileData(objId, _filename, _filesize, _content, _filedata, objCommon.GetUserId(), ObjType,DocType);
+                _fileid = objDml.InsertFileData(objId, _filename, _filesize, _content, _filedata, HttpContext.Current.Session["LoginSID"].ToString(), ObjType,DocType);
                 return _fileid.ToString();
             }
             catch

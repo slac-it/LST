@@ -8,12 +8,15 @@
 //
 
 using System;
+using log4net;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Text;
+using System.Net.Http;
+using LST.SSO;
 
 namespace LST
 {
@@ -25,6 +28,12 @@ namespace LST
         Business.Validation objValid = new Business.Validation();
         Business.Rules objRules = new Business.Rules();
         Business.UserRoles objRoles = new Business.UserRoles();
+        SSO_Util objSSO = new SSO_Util();
+        protected static readonly ILog Log = LogManager.GetLogger(typeof(ApprovalRequest));
+
+
+
+
         protected enum WorkerStat
         {
             Active, //exists and active
@@ -57,9 +66,9 @@ namespace LST
             get
             {
               // return (divOp.Visible? objCommon.GetEmpid(TxtWorker.Text).ToString() : objCommon.GetEmpid(LblOperatorVal.Text).ToString() );
-              // return (divOp.Visible ? LblEmpId.Text.ToString() : objCommon.GetUserId().ToString());
+              // return (divOp.Visible ? LblEmpId.Text.ToString() : HttpContext.Current.Session["LoginSID"].ToString());
               //  return (divOp.Visible ? objCommon.GetEmpid(TxtWorker.Text).ToString() : objCommon.GetEmpid(LblOperatorVal.Text).ToString());
-                return (HdnEmpid.Value != "") ? HdnEmpid.Value.ToString() : "";
+                return (HdnEmpid.Value != "") ? HdnEmpid.Value.ToString() : objSSO.LoginSID;
             }
             set
             {
@@ -121,6 +130,15 @@ namespace LST
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Log.Info("Approval Request Page Load");
+            Log.Info("Login SID: " + HttpContext.Current.Session["LoginSID"]);
+            if (HttpContext.Current.Session["LoginSID"] == null)
+            {
+                HttpContext.Current.Session["LoginSID"] = objSSO.LoginSID;
+                Log.Info("Login SID: " + HttpContext.Current.Session["LoginSID"]);
+
+            }
+
             ImgBtAlt.Attributes.Add("onClick", "OpenDialogForName('dialogowneradmin','TxtAlternate'); return false;");
             if (!Page.IsPostBack)
             {
@@ -241,7 +259,17 @@ namespace LST
         {
 
             bool _isSLSOAlt = false;
-            objRoles.GetUserRole(objCommon.GetUserId().ToString(), 0, 0);
+            var loginSID = HttpContext.Current.Session["LoginSID"];
+
+            if (loginSID != null) 
+            { 
+                objRoles.GetUserRole(HttpContext.Current.Session["LoginSID"].ToString(), 0, 0);
+            }
+            else
+            {
+                Response.Redirect("Default.aspx");
+            }
+
 
             if ((objRoles.IsSLSOGen) || (objRoles.IsAltSLSOGen) || (objRoles.IsLSOrAlt()))
             {
@@ -253,8 +281,8 @@ namespace LST
                 }
             }
             IsSLSOAlt = _isSLSOAlt;
-            HdnEmpid.Value = objCommon.GetUserId();
-           CheckWorkerStatus(objCommon.GetUserId());
+            //HdnEmpid.Value = HttpContext.Current.Session["LoginSID"].ToString();
+           CheckWorkerStatus(HttpContext.Current.Session["LoginSID"].ToString());
             FillDropdownlists(); //Initially fill all the facility for slso
         }
 
@@ -273,6 +301,7 @@ namespace LST
 
         protected void PopulateWorkerInfo()
         {
+            Log.Info("Populate Worker Info - SlacId: " + SlacId);
             Business.Worker objWorker = new Business.Worker();
             objWorker = objDml.GetWorkerDetails(Convert.ToInt32(SlacId), "slac");
             TxtPreferredEmail.Text = objWorker.PreferredEmail;
@@ -317,7 +346,7 @@ namespace LST
             else
             {
                 DivAltsvr.Visible = false;
-                objRoles.GetUserRole(objCommon.GetUserId().ToString(), 0, 0);
+                objRoles.GetUserRole(HttpContext.Current.Session["LoginSID"].ToString(), 0, 0);
                 if ((objRoles.IsSLSOGen) || (objRoles.IsAltSLSOGen) || (objRoles.IsLSOrAlt()))
                 {
                     DivAltsvrAdd.Visible = true;
@@ -434,7 +463,7 @@ namespace LST
                 objWorker.WorkerName = (divOpview.Visible) ? LblOperatorVal.Text.Trim() : TxtWorker.Text.Trim();
                 objWorker.IsESHManualReviewed = "N";
                 objWorker.IsStudReqReviewed = "N";
-                objWorker.CreatedById = objCommon.GetUserId();
+                objWorker.CreatedById = HttpContext.Current.Session["LoginSID"].ToString();
                
           
                 _result = objDml.CreateWorker(objWorker);
@@ -448,7 +477,7 @@ namespace LST
             {
                 objWorker.IsESHManualReviewed = "N";
                 objWorker.IsStudReqReviewed = "N";
-                objWorker.ModifiedBy = objCommon.GetUserId();
+                objWorker.ModifiedBy = HttpContext.Current.Session["LoginSID"].ToString();
                 objWorker.WorkerId = objDml.GetWorkerId(objWorker.SlacId.ToString(), "N");
                 
                 _result = objDml.ReinstateWorker(objWorker);
@@ -456,7 +485,7 @@ namespace LST
             else
             {
                 //_result is 0 if updated successfully
-                objWorker.ModifiedBy = objCommon.GetUserId();
+                objWorker.ModifiedBy = HttpContext.Current.Session["LoginSID"].ToString();
                 objWorker.WorkerId = objDml.GetWorkerId(objWorker.SlacId.ToString());
                 _result = objDml.UpdateWorker(objWorker);
             }
@@ -476,7 +505,7 @@ namespace LST
             objWorkerFacility.Justification = Server.HtmlEncode(objCommon.ReplaceSC(TxtJustification.Text));
             objWorkerFacility.ConditionalApproval = (DivCondition.Visible) ? ((TxtJustification.Text != "") ? "Y" : "N") : "N";
             objWorkerFacility.SOPReviewed = (DivSOPterms.Visible) ? ((RblSOP.SelectedValue == "0") ? "Y" : "N") : "N";
-            objWorkerFacility.CreatedBy = objCommon.GetUserId();
+            objWorkerFacility.CreatedBy = HttpContext.Current.Session["LoginSID"].ToString();
             string _eshManualReviewed = (RbEshManual.Visible) ? ((RbEshManual.SelectedValue == "0") ? "Y" : "N") : "N";
             string _studReqreviewed = (divStudent.Visible) ? ((RblStudreq.Visible) ? ((RblStudreq.SelectedValue == "0") ? "Y" : "N") : "N") : "N";
             bool _condApp = (objWorkerFacility.ConditionalApproval == "Y") ? true : false;
@@ -724,7 +753,7 @@ namespace LST
                 UCUserLab.Visible = false;
             }
             //if slso or altslso , list only the facilities they belong to
-            if ((IsSLSOAlt) && (SlacId != objCommon.GetUserId()))
+            if ((IsSLSOAlt) && (SlacId != HttpContext.Current.Session["LoginSID"]))
                 FillDropdownLab(true);
             else FillDropdownLab(false);
 

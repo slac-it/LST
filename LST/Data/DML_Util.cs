@@ -717,7 +717,7 @@ namespace LST.Data
 
             using (OracleCommand _cmdfac = new OracleCommand())
             {
-                int SlacId = Convert.ToInt32(objCommon.GetUserId());
+                int SlacId = Convert.ToInt32(HttpContext.Current.Session["LoginSID"]);
                 String _sqlFac = "";
                 try
                 {
@@ -965,7 +965,7 @@ namespace LST.Data
                         }
                         _ocmd.Parameters["Pi_New_Date"].Direction = ParameterDirection.Input;
 
-                        _ocmd.Parameters.Add("Pi_Modified_by", OracleDbType.Varchar2).Value = objCommon.GetUserId();
+                        _ocmd.Parameters.Add("Pi_Modified_by", OracleDbType.Varchar2).Value = HttpContext.Current.Session["LoginSID"];
                         _ocmd.Parameters["Pi_Modified_by"].Direction = ParameterDirection.Input;
                         
                         _ocmd.Parameters.Add("PO_RETURN_CODE",  OracleDbType.Int32).Direction = ParameterDirection.Output;
@@ -2274,7 +2274,7 @@ namespace LST.Data
                         _ocmd.Parameters.Add("Pi_Alt_To", OracleDbType.Date).Value = altTo;
                         _ocmd.Parameters["Pi_Alt_To"].Direction = ParameterDirection.Input;
 
-                        _ocmd.Parameters.Add("Pi_Modified_By", OracleDbType.Varchar2).Value = objCommon.GetUserId();
+                        _ocmd.Parameters.Add("Pi_Modified_By", OracleDbType.Varchar2).Value = HttpContext.Current.Session["LoginSID"];
                         _ocmd.Parameters["Pi_Modified_By"].Direction = ParameterDirection.Input;
 
                         _ocmd.Parameters.Add("Po_Return_Code", OracleDbType.Int32).Direction = ParameterDirection.Output;
@@ -2533,7 +2533,7 @@ and trunc(ALTLSO_TO) <= trunc(TO_DATE(:ToNewDate,'mm/dd/yyyy')))) ";
                         _ocmd.Parameters.Add("Pi_Alt_To", OracleDbType.Date).Value = altTo;
                         _ocmd.Parameters["Pi_Alt_To"].Direction = ParameterDirection.Input;
 
-                        _ocmd.Parameters.Add("Pi_Modified_By", OracleDbType.Varchar2).Value = objCommon.GetUserId();
+                        _ocmd.Parameters.Add("Pi_Modified_By", OracleDbType.Varchar2).Value = HttpContext.Current.Session["LoginSID"];
                         _ocmd.Parameters["Pi_Modified_By"].Direction = ParameterDirection.Input;
 
                         _ocmd.Parameters.Add("Po_Return_Code", OracleDbType.Int32).Direction = ParameterDirection.Output;
@@ -3281,7 +3281,7 @@ and trunc(ALTLSO_TO) <= trunc(TO_DATE(:ToNewDate,'mm/dd/yyyy')))) ";
                         _ocmd.Parameters.Add("PI_MAP_ID", OracleDbType.Int32).Value = mapId;
                         _ocmd.Parameters["PI_MAP_ID"].Direction = ParameterDirection.Input;
 
-                        _ocmd.Parameters.Add("Pi_Modified_By", OracleDbType.Varchar2).Value = objCommon.GetUserId();
+                        _ocmd.Parameters.Add("Pi_Modified_By", OracleDbType.Varchar2).Value = HttpContext.Current.Session["LoginSID"];
                         _ocmd.Parameters["Pi_Modified_By"].Direction = ParameterDirection.Input;
 
                         _ocmd.Parameters.Add("PO_RETURN_CODE",  OracleDbType.Int32).Direction = ParameterDirection.Output;
@@ -3563,7 +3563,7 @@ and trunc(ALTLSO_TO) <= trunc(TO_DATE(:ToNewDate,'mm/dd/yyyy')))) ";
                         _ocmd.Parameters.Add("PI_COLUMN_LABEL",  OracleDbType.Varchar2).Value = columnLabel;
                         _ocmd.Parameters["PI_COLUMN_LABEL"].Direction = ParameterDirection.Input;
 
-                        _ocmd.Parameters.Add("Pi_Modified_By", OracleDbType.Varchar2).Value = objCommon.GetUserId();
+                        _ocmd.Parameters.Add("Pi_Modified_By", OracleDbType.Varchar2).Value = HttpContext.Current.Session["LoginSID"];
                         _ocmd.Parameters["Pi_Modified_By"].Direction = ParameterDirection.Input;
 
                         _ocmd.Parameters.Add("PO_RETURN_CODE", OracleDbType.Int32).Direction = ParameterDirection.Output;
@@ -3604,7 +3604,7 @@ and trunc(ALTLSO_TO) <= trunc(TO_DATE(:ToNewDate,'mm/dd/yyyy')))) ";
                         _ocmd.Parameters.Add("PI_FIELD_ID", OracleDbType.Int32).Value = fieldId;
                         _ocmd.Parameters["PI_FIELD_ID"].Direction = ParameterDirection.Input;
 
-                        _ocmd.Parameters.Add("PI_MODIFIED_BY",  OracleDbType.Varchar2).Value = objCommon.GetUserId();
+                        _ocmd.Parameters.Add("PI_MODIFIED_BY",  OracleDbType.Varchar2).Value = HttpContext.Current.Session["LoginSID"];
                         _ocmd.Parameters["PI_MODIFIED_BY"].Direction = ParameterDirection.Input;
 
                         _ocmd.Parameters.Add("po_RETURN_CODE", OracleDbType.Int32).Direction = ParameterDirection.Output;

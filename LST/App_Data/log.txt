@@ -1,0 +1,104 @@
+2024-11-26 13:04:36,408 [87] INFO  DotNetOpenAuth - DotNetOpenAuth.Core, Version=4.1.4.12333, Culture=neutral, PublicKeyToken=2780ccd10d57b246 (official)
+2024-11-26 13:04:36,421 [87] INFO  DotNetOpenAuth - Reporting will use isolated storage with scope: User, Domain, Assembly
+2024-11-26 13:04:41,377 [74] INFO  LST.SSO.SSO_Util - Get SID:573974;573974
+2024-11-26 13:04:41,377 [74] INFO  LST.SSO.SSO_Util - Login Name:Robert P;Robert P
+2024-11-26 13:04:41,377 [74] INFO  LST.SSO.SSO_Util - Login Email:rpguar1@SLAC.Stanford.EDU;rpguar1@SLAC.Stanford.EDU
+2024-11-26 13:04:41,378 [74] INFO  LST._Default - Login SID: 573974
+2024-11-26 13:04:45,640 [58] INFO  LST.SSO.SSO_Util - Get SID:573974
+2024-11-26 13:04:45,640 [58] INFO  LST.SSO.SSO_Util - Login Name:Robert P
+2024-11-26 13:04:45,640 [58] INFO  LST.SSO.SSO_Util - Login Email:rpguar1@SLAC.Stanford.EDU
+2024-11-26 13:04:45,641 [58] INFO  LST._Default - Login SID: 573974
+2024-11-26 13:05:31,120 [75] INFO  LST.SSO.SSO_Util - Get SID:573974
+2024-11-26 13:05:31,120 [75] INFO  LST.SSO.SSO_Util - Login Name:Robert P
+2024-11-26 13:05:31,120 [75] INFO  LST.SSO.SSO_Util - Login Email:rpguar1@SLAC.Stanford.EDU
+2024-11-26 13:05:31,120 [75] INFO  LST._Default - Login SID: 573974
+2024-11-26 13:05:33,045 [53] INFO  LST.SSO.SSO_Util - Get SID:573974
+2024-11-26 13:05:33,045 [53] INFO  LST.SSO.SSO_Util - Login Name:Robert P
+2024-11-26 13:05:33,045 [53] INFO  LST.SSO.SSO_Util - Login Email:rpguar1@SLAC.Stanford.EDU
+2024-11-26 13:05:33,045 [53] INFO  LST._Default - Login SID: 573974
+2024-11-26 13:09:38,748 [1] INFO  DotNetOpenAuth - DotNetOpenAuth.Core, Version=4.1.4.12333, Culture=neutral, PublicKeyToken=2780ccd10d57b246 (official)
+2024-11-26 13:09:38,755 [1] INFO  DotNetOpenAuth - Reporting will use isolated storage with scope: User, Domain, Assembly
+2024-11-26 13:09:50,880 [49] INFO  LST.SSO.SSO_Util - Get SID:573974;573974
+2024-11-26 13:09:50,880 [49] INFO  LST.SSO.SSO_Util - Login Name:Robert P;Robert P
+2024-11-26 13:09:50,880 [49] INFO  LST.SSO.SSO_Util - Login Email:rpguar1@SLAC.Stanford.EDU;rpguar1@SLAC.Stanford.EDU
+2024-11-26 13:09:50,880 [49] INFO  LST._Default - Login SID: 573974
+2024-11-26 13:09:54,294 [156] INFO  LST.SSO.SSO_Util - Get SID:573974
+2024-11-26 13:09:54,294 [156] INFO  LST.SSO.SSO_Util - Login Name:Robert P
+2024-11-26 13:09:54,294 [156] INFO  LST.SSO.SSO_Util - Login Email:rpguar1@SLAC.Stanford.EDU
+2024-11-26 13:09:54,295 [156] INFO  LST._Default - Login SID: 573974
+2024-11-26 13:19:11,690 [105] INFO  DotNetOpenAuth - DotNetOpenAuth.Core, Version=4.1.4.12333, Culture=neutral, PublicKeyToken=2780ccd10d57b246 (official)
+2024-11-26 13:19:11,701 [105] INFO  DotNetOpenAuth - Reporting will use isolated storage with scope: User, Domain, Assembly
+2024-11-26 13:19:24,560 [120] INFO  LST.SSO.SSO_Util - Get SID:573974;573974
+2024-11-26 13:19:24,560 [120] INFO  LST.SSO.SSO_Util - Login Name:Robert P;Robert P
+2024-11-26 13:19:24,560 [120] INFO  LST.SSO.SSO_Util - Login Email:rpguar1@SLAC.Stanford.EDU;rpguar1@SLAC.Stanford.EDU
+2024-11-26 13:19:24,560 [120] INFO  LST._Default - Login SID: 573974
+2024-11-26 13:19:42,839 [86] INFO  LST.SSO.SSO_Util - Get SID:573974
+2024-11-26 13:19:42,839 [86] INFO  LST.SSO.SSO_Util - Login Name:Robert P
+2024-11-26 13:19:42,839 [86] INFO  LST.SSO.SSO_Util - Login Email:rpguar1@SLAC.Stanford.EDU
+2024-11-26 13:19:42,839 [86] INFO  LST._Default - Login SID: 573974
+2024-11-26 13:19:50,923 [157] INFO  LST.SSO.SSO_Util - Get SID:573974
+2024-11-26 13:19:50,923 [157] INFO  LST.SSO.SSO_Util - Login Name:Robert P
+2024-11-26 13:19:50,923 [157] INFO  LST.SSO.SSO_Util - Login Email:rpguar1@SLAC.Stanford.EDU
+2024-11-26 13:19:50,923 [157] INFO  LST._Default - Login SID: 573974
+2024-11-26 13:19:53,393 [151] INFO  LST.SSO.SSO_Util - Get SID:573974
+2024-11-26 13:19:53,393 [151] INFO  LST.SSO.SSO_Util - Login Name:Robert P
+2024-11-26 13:19:53,393 [151] INFO  LST.SSO.SSO_Util - Login Email:rpguar1@SLAC.Stanford.EDU
+2024-11-26 13:19:53,393 [151] INFO  LST._Default - Login SID: 573974
+2024-11-26 13:19:55,506 [115] INFO  LST.SSO.SSO_Util - Get SID:573974
+2024-11-26 13:19:55,506 [115] INFO  LST.SSO.SSO_Util - Login Name:Robert P
+2024-11-26 13:19:55,506 [115] INFO  LST.SSO.SSO_Util - Login Email:rpguar1@SLAC.Stanford.EDU
+2024-11-26 13:19:55,506 [115] INFO  LST._Default - Login SID: 573974
+2024-11-26 13:19:55,538 [86] INFO  LST.SSO.SSO_Util - Get SID:573974
+2024-11-26 13:19:55,538 [86] INFO  LST.SSO.SSO_Util - Login Name:Robert P
+2024-11-26 13:19:55,538 [86] INFO  LST.SSO.SSO_Util - Login Email:rpguar1@SLAC.Stanford.EDU
+2024-11-26 13:19:55,538 [86] INFO  LST._Default - Login SID: 573974
+2024-11-26 14:04:41,441 [178] INFO  DotNetOpenAuth - DotNetOpenAuth.Core, Version=4.1.4.12333, Culture=neutral, PublicKeyToken=2780ccd10d57b246 (official)
+2024-11-26 14:04:41,453 [178] INFO  DotNetOpenAuth - Reporting will use isolated storage with scope: User, Domain, Assembly
+2024-11-26 14:04:57,883 [184] INFO  LST.SSO.SSO_Util - Get SID:573974;573974
+2024-11-26 14:04:57,883 [184] INFO  LST.SSO.SSO_Util - Login Name:Robert P;Robert P
+2024-11-26 14:04:57,883 [184] INFO  LST.SSO.SSO_Util - Login Email:rpguar1@SLAC.Stanford.EDU;rpguar1@SLAC.Stanford.EDU
+2024-11-26 14:04:57,884 [184] INFO  LST._Default - Login SID: 573974
+2024-11-26 14:05:35,607 [183] INFO  LST.SSO.SSO_Util - Get SID:573974
+2024-11-26 14:05:35,607 [183] INFO  LST.SSO.SSO_Util - Login Name:Robert P
+2024-11-26 14:05:35,607 [183] INFO  LST.SSO.SSO_Util - Login Email:rpguar1@SLAC.Stanford.EDU
+2024-11-26 14:05:35,607 [183] INFO  LST._Default - Login SID: 573974
+2024-11-26 14:10:11,144 [165] INFO  DotNetOpenAuth - DotNetOpenAuth.Core, Version=4.1.4.12333, Culture=neutral, PublicKeyToken=2780ccd10d57b246 (official)
+2024-11-26 14:10:11,155 [165] INFO  DotNetOpenAuth - Reporting will use isolated storage with scope: User, Domain, Assembly
+2024-11-26 14:10:11,552 [165] INFO  LST.Global - Application Started
+2024-11-26 14:10:23,394 [173] INFO  LST.SSO.SSO_Util - Get SID:573974;573974
+2024-11-26 14:10:23,394 [173] INFO  LST.SSO.SSO_Util - Login Name:Robert P;Robert P
+2024-11-26 14:10:23,394 [173] INFO  LST.SSO.SSO_Util - Login Email:rpguar1@SLAC.Stanford.EDU;rpguar1@SLAC.Stanford.EDU
+2024-11-26 14:10:23,394 [173] INFO  LST._Default - Login SID: 573974
+2024-11-26 14:19:30,401 [165] INFO  DotNetOpenAuth - DotNetOpenAuth.Core, Version=4.1.4.12333, Culture=neutral, PublicKeyToken=2780ccd10d57b246 (official)
+2024-11-26 14:19:30,413 [165] INFO  DotNetOpenAuth - Reporting will use isolated storage with scope: User, Domain, Assembly
+2024-11-26 14:19:30,818 [165] INFO  LST.Global - Application Started
+2024-11-26 14:19:41,622 [11] INFO  LST.SSO.SSO_Util - Get SID:573974;573974
+2024-11-26 14:19:41,622 [11] INFO  LST.SSO.SSO_Util - Login Name:Robert P;Robert P
+2024-11-26 14:19:41,623 [11] INFO  LST.SSO.SSO_Util - Login Email:rpguar1@SLAC.Stanford.EDU;rpguar1@SLAC.Stanford.EDU
+2024-11-26 14:19:41,623 [11] INFO  LST._Default - Login SID: 573974
+2024-11-26 14:21:05,913 [80] INFO  LST.SSO.SSO_Util - Get SID:573974
+2024-11-26 14:21:05,913 [80] INFO  LST.SSO.SSO_Util - Login Name:Robert P
+2024-11-26 14:21:05,913 [80] INFO  LST.SSO.SSO_Util - Login Email:rpguar1@SLAC.Stanford.EDU
+2024-11-26 14:21:05,913 [80] INFO  LST._Default - Login SID: 573974
+2024-11-26 14:28:17,310 [105] INFO  DotNetOpenAuth - DotNetOpenAuth.Core, Version=4.1.4.12333, Culture=neutral, PublicKeyToken=2780ccd10d57b246 (official)
+2024-11-26 14:28:17,317 [105] INFO  DotNetOpenAuth - Reporting will use isolated storage with scope: User, Domain, Assembly
+2024-11-26 14:28:17,703 [105] INFO  LST.Global - Application Started
+2024-11-26 14:28:29,191 [179] INFO  LST.SSO.SSO_Util - Get SID:573974;573974
+2024-11-26 14:28:29,191 [179] INFO  LST.SSO.SSO_Util - Login Name:Robert P;Robert P
+2024-11-26 14:28:29,191 [179] INFO  LST.SSO.SSO_Util - Login Email:rpguar1@SLAC.Stanford.EDU;rpguar1@SLAC.Stanford.EDU
+2024-11-26 14:28:29,191 [179] INFO  LST._Default - Login SID: 573974
+2024-11-26 14:33:10,646 [140] INFO  DotNetOpenAuth - DotNetOpenAuth.Core, Version=4.1.4.12333, Culture=neutral, PublicKeyToken=2780ccd10d57b246 (official)
+2024-11-26 14:33:10,653 [140] INFO  DotNetOpenAuth - Reporting will use isolated storage with scope: User, Domain, Assembly
+2024-11-26 14:33:11,042 [140] INFO  LST.Global - Application Started
+2024-11-26 14:33:22,518 [95] INFO  LST.SSO.SSO_Util - Get SID:573974;573974
+2024-11-26 14:33:22,518 [95] INFO  LST.SSO.SSO_Util - Login Name:Robert P;Robert P
+2024-11-26 14:33:22,518 [95] INFO  LST.SSO.SSO_Util - Login Email:rpguar1@SLAC.Stanford.EDU;rpguar1@SLAC.Stanford.EDU
+2024-11-26 14:33:22,518 [95] INFO  LST._Default - Login SID: 573974
+2024-11-26 14:33:26,522 [72] INFO  LST.SSO.SSO_Util - Get SID:573974
+2024-11-26 14:33:26,522 [72] INFO  LST.SSO.SSO_Util - Login Name:Robert P
+2024-11-26 14:33:26,522 [72] INFO  LST.SSO.SSO_Util - Login Email:rpguar1@SLAC.Stanford.EDU
+2024-11-26 14:33:26,522 [72] INFO  LST._Default - Login SID: 573974
+2024-11-26 14:33:29,838 [11] INFO  LST.SSO.SSO_Util - Get SID:573974
+2024-11-26 14:33:29,838 [11] INFO  LST.SSO.SSO_Util - Login Name:Robert P
+2024-11-26 14:33:29,838 [11] INFO  LST.SSO.SSO_Util - Login Email:rpguar1@SLAC.Stanford.EDU
+2024-11-26 14:33:29,838 [11] INFO  LST._Default - Login SID: 573974

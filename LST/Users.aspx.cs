@@ -128,7 +128,7 @@ namespace LST
             objUser.RoleTypeId = 15;
             objUser.UserName = TxtUser.Text.Trim();
             objUser.SlacId = (HdnUserId.Value != "")?Convert.ToInt32(HdnUserId.Value) :0;//objCommon.GetEmpid(objUser.UserName);
-            objUser.CreatedBy = objCommon.GetUserId();
+            objUser.CreatedBy = HttpContext.Current.Session["LoginSID"].ToString();
             int _userRoleId = objDml.CreateUser(objUser);
             if (_userRoleId != 0)
             {

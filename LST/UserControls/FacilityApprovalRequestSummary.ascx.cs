@@ -67,7 +67,7 @@ namespace LST.UserControls
                         SpnInfo.Visible = true;
                         SpnInfoSLSO.Visible = false;
                         ApproverType = "LSO";
-                        _check = objRoles.CheckifinRole(Convert.ToInt32(objCommon.GetUserId()), Business.UserRoles.UserType.ALTLSO, 0, 0);
+                        _check = objRoles.CheckifinRole(Convert.ToInt32(HttpContext.Current.Session["LoginSID"]), Business.UserRoles.UserType.ALTLSO, 0, 0);
                         if (_check)
                         {
                             ApproverType = " LSO (or as a designated alternate LSO) ";

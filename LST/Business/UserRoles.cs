@@ -15,6 +15,8 @@ using System.Data;
 //using System.Data.OracleClient;
 using System.Text;
 using Oracle.ManagedDataAccess.Client;
+using log4net;
+using LST.SSO;
 
 namespace LST.Business
 {
@@ -23,8 +25,11 @@ namespace LST.Business
         Data.Data_Util objData = new Data.Data_Util();
         Business.Common_Util objCommon = new Business.Common_Util();
         Data.DML_Util objDml = new Data.DML_Util();
+        SSO_Util objSSO = new SSO_Util();
+        protected static readonly ILog Log = LogManager.GetLogger(typeof(UserRoles));
 
-      public enum UserType
+
+        public enum UserType
         {
             LSO,
             DLSO,
@@ -66,6 +71,8 @@ namespace LST.Business
        
         public void GetUserRole(string _userId, int _facilityId, int _workerslacid = 0)
         {
+            Log.Info("GetUserRole: " + _userId + " Facility: " + _facilityId);
+
             string _strUser = @"Select L.Lookup_Desc As Roletype, Ur.User_Role_Id From Lst_User_Roles Ur Left Join Lst_Lookup L On L.Lookup_Id = Ur.Role_Type_Id
                                             WHERE ur.IS_ACTIVE= 'Y' AND ur.SLAC_ID = :UserId";
             IsLSO = IsDLSO = IsSLSO = IsActSLSO = IsCoSLSO = IsAdmin = IsAdminSvr = IsAltSVR = IsAltSLSO = IsSLSOGen = IsAltSVRGen = IsAltSLSOGen = IsSLSOnofac = IsAltLSO = IsProgramMgr = IsESHCoordinator = false;
@@ -302,7 +309,15 @@ namespace LST.Business
     
         public bool CheckAccessibility()
         {
-            GetUserRole(objCommon.GetUserId().ToString(), 0);
+            if (HttpContext.Current.Session["LoginSID"] != null)
+            {
+                GetUserRole(HttpContext.Current.Session["LoginSID"].ToString(), 0);
+            }
+            else
+            {
+                GetUserRole(objSSO.LoginSID, 0);
+            }
+
 
             if ((IsLSOrAlt()) || (IsDLSO)  || (IsAdmin))
             { return true; }
@@ -312,7 +327,15 @@ namespace LST.Business
 
         public bool CheckAccessibility(int facId)
         {
-            GetUserRole(objCommon.GetUserId().ToString(), facId);
+            if (HttpContext.Current.Session["LoginSID"] != null)
+            {
+                GetUserRole(HttpContext.Current.Session["LoginSID"].ToString(), facId);
+            }
+            else
+            {
+                GetUserRole(objSSO.LoginSID, facId);
+            }
+
 
             if ((IsLSOrAlt()) || (IsDLSO) || (IsAdmin) || (IsActSLSO) || (IsAltSLSO) || (IsSLSO) || (IsCoSLSO) || (IsProgramMgr) || (IsESHCoordinator))
             {
@@ -330,7 +353,19 @@ namespace LST.Business
         {
             StringBuilder _sbSql = new StringBuilder();
             int _count = 0;
-            int _userRoleId = objDml.GetUserRoleId(objCommon.GetUserId(), objDml.GetRoleId("SLSO"));
+            string loginSID = String.Empty;
+            var sID = HttpContext.Current.Session["LoginSID"];
+            if (sID == null)
+            {
+                loginSID = objSSO.LoginSID;
+            }
+            else
+            {
+                loginSID = sID.ToString();
+            }
+
+
+            int _userRoleId = objDml.GetUserRoleId(loginSID, objDml.GetRoleId("SLSO"));
             _sbSql.Append("SELECT COUNT(*) FROM LST_FACILITY WHERE FACILITY_ID = :FacilityId AND IS_ACTIVE='Y' ");
             _sbSql.Append(" AND ((SLSO = :RoleId) OR (ACTING_SLSO = :RoleId) OR (CO_SLSO1 = :RoleId) OR (ALTERNATE_SLSO= :SlacId AND TRUNC(ALTSLSO_TO) >= TRUNC(SYSDATE)))");
       
@@ -338,7 +373,7 @@ namespace LST.Business
             {
                 _cmdUserrole.Parameters.Add(":FacilityId", OracleDbType.Int32).Value = facId;
                 _cmdUserrole.Parameters.Add(":RoleId", OracleDbType.Int32).Value = _userRoleId;
-                _cmdUserrole.Parameters.Add(":SlacId", OracleDbType.Varchar2).Value = objCommon.GetUserId();
+                _cmdUserrole.Parameters.Add(":SlacId", OracleDbType.Varchar2).Value = loginSID;
                 using (OracleDataReader _drRole = objData.GetReader(_sbSql.ToString(), _cmdUserrole))
                 {
                     while (_drRole.Read())
@@ -363,14 +398,28 @@ namespace LST.Business
         {
             StringBuilder _sbSql = new StringBuilder();
             int _count = 0;
-            int _userRoleId = objDml.GetUserRoleId(objCommon.GetUserId(), objDml.GetRoleId("SLSO"));
+
+            string loginSID = String.Empty;
+            var sID = HttpContext.Current.Session["LoginSID"];
+            if (sID == null)
+            {
+                loginSID = objSSO.LoginSID;
+            }
+            else
+            {
+                loginSID = sID.ToString();
+            }
+
+
+
+            int _userRoleId = objDml.GetUserRoleId(loginSID, objDml.GetRoleId("SLSO"));
             _sbSql.Append("SELECT COUNT(*) FROM LST_FACILITY WHERE  IS_ACTIVE='Y' ");
             _sbSql.Append(" AND ((SLSO = :RoleId) OR (ACTING_SLSO = :RoleId) OR (CO_SLSO1 = :RoleId) OR (ALTERNATE_SLSO= :SlacId AND TRUNC(ALTSLSO_TO) >= TRUNC(SYSDATE)))");
 
             using (OracleCommand _cmdUserrole = new OracleCommand())
             {
                 _cmdUserrole.Parameters.Add(":RoleId", OracleDbType.Int32).Value = _userRoleId;
-                _cmdUserrole.Parameters.Add(":SlacId", OracleDbType.Varchar2).Value = objCommon.GetUserId();
+                _cmdUserrole.Parameters.Add(":SlacId", OracleDbType.Varchar2).Value = loginSID;
                 using (OracleDataReader _drRole = objData.GetReader(_sbSql.ToString(), _cmdUserrole))
                 {
                     while (_drRole.Read())

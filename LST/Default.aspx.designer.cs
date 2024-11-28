@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LST {
-    
-    
-    public partial class _Default {
-        
+namespace LST
+{
+
+
+    public partial class _Default
+    {
+
         /// <summary>
         /// UCPending1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace LST {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::LST.UserControls.WorkerPendingRequestSummary UCPending1;
-        
+
         /// <summary>
         /// DivWorker control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace LST {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivWorker;
-        
+
         /// <summary>
         /// UCUserSum control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace LST {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::LST.UserControls.UserLabSummary UCUserSum;
-        
+
         /// <summary>
         /// DivSLSO control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace LST {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivSLSO;
-        
+
         /// <summary>
         /// UCSLSOSum control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace LST {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::LST.UserControls.SLSOLabSummary UCSLSOSum;
-        
+
         /// <summary>
         /// DivSLSOApp control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace LST {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivSLSOApp;
-        
+
         /// <summary>
         /// UCFacReqSum control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace LST {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::LST.UserControls.FacilityApprovalRequestSummary UCFacReqSum;
-        
+
         /// <summary>
         /// UCReqSum control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace LST {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::LST.UserControls.ApprovalRequestSummary UCReqSum;
-        
+
         /// <summary>
         /// DivLSO control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace LST {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivLSO;
-        
+
         /// <summary>
         /// UCFacReqSumLSO control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace LST {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::LST.UserControls.FacilityApprovalRequestSummary UCFacReqSumLSO;
-        
+
         /// <summary>
         /// UCReqSumLSO control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace LST {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::LST.UserControls.ApprovalRequestSummary UCReqSumLSO;
-        
+
         /// <summary>
         /// DivAdmSVR control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace LST {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivAdmSVR;
-        
+
         /// <summary>
         /// UCReqSumSVR control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace LST {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::LST.UserControls.ApprovalRequestSummary UCReqSumSVR;
-        
+
         /// <summary>
         /// DivPM control.
         /// </summary>
@@ -137,7 +139,7 @@ namespace LST {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivPM;
-        
+
         /// <summary>
         /// UCFacReqSumPM control.
         /// </summary>
@@ -146,7 +148,7 @@ namespace LST {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::LST.UserControls.FacilityApprovalRequestSummary UCFacReqSumPM;
-        
+
         /// <summary>
         /// DivCoord control.
         /// </summary>
@@ -155,7 +157,7 @@ namespace LST {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivCoord;
-        
+
         /// <summary>
         /// UCFacReqSumCoord control.
         /// </summary>

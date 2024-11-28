@@ -16,6 +16,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 //using System.Data.OracleClient;
 using Oracle.ManagedDataAccess.Client;
+using System.Net.Http;
 
 
 namespace LST
@@ -133,7 +134,7 @@ namespace LST
             if (!_hasChild)
             {
                 //Delete facility
-                string _result = objDml.DeleteObject(objId, objcommon.GetUserId().ToString(), objType);
+                string _result = objDml.DeleteObject(objId, HttpContext.Current.Session["LoginSID"].ToString(), objType);
 
                
                 if (_result == "0")
@@ -168,7 +169,7 @@ namespace LST
             bool _isActive = objDml.CheckIfitHasChild(workerId, "worker");
             if (!_isActive)
             {
-                string _result = objDml.DeleteObject(workerId, objcommon.GetUserId().ToString(), "worker");
+                string _result = objDml.DeleteObject(workerId, HttpContext.Current.Session["LoginSID"].ToString(), "worker");
                 if (_result == "0")
                 {
                     LblMsg.Text = "Worker " + workerName + " deleted and the worker's association with the facilities has been removed";
@@ -864,7 +865,7 @@ namespace LST
             if (e.CommandName == "delete")
             {
                 int _mgrId = Convert.ToInt32(e.CommandArgument);
-                int _result = objDml.DeleteAltLSO(_mgrId, objcommon.GetUserId().ToString());
+                int _result = objDml.DeleteAltLSO(_mgrId, HttpContext.Current.Session["LoginSID"].ToString());
                 if (_result == 1)
                 {
                     BindAltLSO();
@@ -1101,7 +1102,7 @@ namespace LST
             if (e.CommandName == "delete")
             {
                 int _facId = Convert.ToInt32(e.CommandArgument);
-                int _result = objDml.DeleteAltSLSO(_facId, objcommon.GetUserId().ToString());
+                int _result = objDml.DeleteAltSLSO(_facId, HttpContext.Current.Session["LoginSID"].ToString());
                 if (_result == 1)
                 {
                     BindAltSLSO();

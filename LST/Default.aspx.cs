@@ -7,22 +7,31 @@
 //  This is the default page of Laser safety tool. This has the dashboard based on the user's access
 //
 
+using log4net;
+using LST.Business;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Mapping;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Oracle.ManagedDataAccess.Client;
+
 //using System.Data.OracleClient;
 
 namespace LST
 {
     public partial class _Default : BasePage
     {
+
+        protected static readonly ILog Log = LogManager.GetLogger(typeof(_Default));
         public string UserName;
         Business.Common_Util objCommon = new Business.Common_Util();
         Business.UserRoles objRoles = new Business.UserRoles();
+        SSO.SSO_Util objSSO = new SSO.SSO_Util();
         Data.DML_Util objDml = new Data.DML_Util();
+
 
         public bool IsDLSOOnly
         {
@@ -32,26 +41,39 @@ namespace LST
 
         protected void Page_Load(object sender, EventArgs e)
         {
-                if (!Page.IsPostBack)
-                {
-                    string _userId = objCommon.GetUserId();
-                    if (_userId == "err") { Response.Redirect("Error.aspx"); }
+            if (!Page.IsPostBack)
+            {
+
+                // login SSO info
+                string _userId = string.Empty;
+                objSSO.getSSOSID();
+                Log.Info("Login SID: " + HttpContext.Current.Session["LoginSID"].ToString());
+
+                // end login SSO info
+
+
+                //string _userId = objCommon.GetUserId();
+                _userId = (HttpContext.Current.Session["LoginSID"] != null) ? HttpContext.Current.Session["LoginSID"].ToString() : "err";
+                //string _userId = (getVar.AttSid != null) ? getVar.AttSid.ToString() : "err";
+                if (_userId == "err") { Response.Redirect("Error.aspx"); }
+
                     Master.FindControl("DivName").Visible = false;
                     if (_userId != "")
                     {
-                        UserName = objCommon.GetFullName(objCommon.GetEmpname(_userId));
-                    }
+                        //UserName = objCommon.GetFullName(objCommon.GetEmpname(_userId));
+                        UserName = HttpContext.Current.Session["LoginName"].ToString();
+                }
                     SetAccessibility();
                     SetPage();
-                   
-                }
-                
- 
+
+            }
+
+
         }
 
         private void SetAccessibility()
         {
-            objRoles.GetUserRole(objCommon.GetUserId().ToString(), 0);
+            objRoles.GetUserRole(HttpContext.Current.Session["LoginSID"].ToString(), 0);
            
            
            if ((objRoles.IsSLSOGen) || (objRoles.IsAltSLSOGen))
@@ -105,8 +127,10 @@ namespace LST
 
         private void SetPage()
         {
-            string _slacId = objCommon.GetUserId();
+            string _slacId = HttpContext.Current.Session["LoginSID"].ToString();
+            Log.Info("SLAC ID: " + _slacId);
             string _userroleid = objDml.GetUserRoleId(_slacId, 15).ToString();
+            Log.Info("User Role ID: " + _userroleid);
 
             UCSLSOSum.UserRoleId = _userroleid;
             UCSLSOSum.SlacId = _slacId;
@@ -148,7 +172,7 @@ namespace LST
                 UCFacReqSumCoord.SlacId = _slacId;
             }
 
-            UCPending1.WorkerId = objDml.GetWorkerId(objCommon.GetUserId());
+            UCPending1.WorkerId = objDml.GetWorkerId(HttpContext.Current.Session["LoginSID"].ToString());
             UCPending1.ShowText = false;
         }
 

@@ -5,8 +5,10 @@
 <%@ Register Src="~/UserControls/WorkerPendingRequestSummary.ascx" TagName="PendingSum" TagPrefix="UC3" %>
 <%@ Register Src="~/UserControls/FacilityApprovalRequestSummary.ascx" TagName="FacreqSum" TagPrefix="UC4" %>
 
+
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-     <script type="text/javascript" src="Scripts/jquery-1.10.2.min.js"></script>
+
+    <script type="text/javascript" src="Scripts/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="Scripts/jquery-ui.min.js"></script>
     <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="Scripts/LST.js"></script>

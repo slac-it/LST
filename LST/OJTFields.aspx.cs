@@ -206,7 +206,7 @@ namespace LST
                 //CreateColumn
                 objField.Columnlabel =  _columnname;
                 objField.FieldId = _fieldid;
-                objField.CreatedBy = objCommon.GetUserId();
+                objField.CreatedBy = HttpContext.Current.Session["LoginSID"].ToString();
 
                 int _result = objDml.CreateOJTFields(objField, FacID);
                 if (_result == 0)
@@ -225,7 +225,7 @@ namespace LST
             {
                 int _fieldId = Convert.ToInt32(e.CommandArgument);
                 objField.FieldId = _fieldId;
-                objField.CreatedBy = objCommon.GetUserId();
+                objField.CreatedBy = HttpContext.Current.Session["LoginSID"].ToString();
 
                 int _result = objDml.DeleteOJTField(objField, FacID);
                 if (_result == 0)

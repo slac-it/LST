@@ -94,7 +94,7 @@ namespace LST
             UCFileList1.DeleteButtonClicked += new EventHandler(UCFileList1_DeleteButtonClicked);
             UCPending1.WorkerId = WorkerId;
             UCPending1.ShowText = true;
-           if (WorkerId == objDml.GetWorkerId(objCommon.GetUserId()))
+           if (WorkerId == objDml.GetWorkerId(HttpContext.Current.Session["LoginSID"].ToString()))
            {
                //Check if user is admin or SLSO for the facility
                UCUserLab.HideEdit = false;
@@ -397,7 +397,7 @@ namespace LST
             if (mode =="edit")
             {
                 objLSTWorker.WorkerId = WorkerId;
-                objLSTWorker.ModifiedBy = objCommon.GetUserId();
+                objLSTWorker.ModifiedBy = HttpContext.Current.Session["LoginSID"].ToString();
                 objLSTWorker.AlternateSvr = "";
                // objLSTWorker.StatusId = Convert.ToInt32(DdlStatus.SelectedValue);
                 int _result = objDml.UpdateWorker(objLSTWorker);
@@ -414,7 +414,7 @@ namespace LST
             }
             else
             {
-                objLSTWorker.CreatedById = objCommon.GetUserId();
+                objLSTWorker.CreatedById = HttpContext.Current.Session["LoginSID"].ToString();
                 int _workerId = objDml.CreateWorker(objLSTWorker);
                 if (_workerId != 0) { LblWorkerMsg.Text = "Worker - " + objLSTWorker.WorkerName + " successfully added"; }
                 else { LblWorkerMsg.Text = "Error! " + objLSTWorker.WorkerName + " could not be added"; }

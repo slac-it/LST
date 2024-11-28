@@ -125,7 +125,7 @@ namespace LST
                 objFacility.AltSLSOTo = (TxtToDate.Text != "") ? Convert.ToDateTime(TxtToDate.Text):DateTime.MinValue;
                 if (divLab.Visible) { objFacility.FacilityId = (DdlFacility.SelectedIndex != 0) ? Convert.ToInt32(DdlFacility.SelectedValue) : 0; }
                 else { objFacility.FacilityId = (ViewState["id"] != null) ? Convert.ToInt32(ViewState["id"]) : 0; }
-                objFacility.ModifiedBy = objCommon.GetUserId();
+                objFacility.ModifiedBy = HttpContext.Current.Session["LoginSID"].ToString();
                 if (objFacility.FacilityId != 0 && objFacility.AltSLSO != 0)
                 {
                     // Check if the Facility has a valid alternate SLSo (Date is valid)
@@ -185,7 +185,7 @@ namespace LST
                 objWorker.AlternateSvrFrom = (TxtFromDate.Text != "") ? Convert.ToDateTime(TxtFromDate.Text) : DateTime.MinValue;
                 objWorker.AlternateSvrTo = (TxtToDate.Text != "") ? Convert.ToDateTime(TxtToDate.Text) : DateTime.MinValue;
                 objWorker.WorkerId = (ViewState["id"] != null)? Convert.ToInt32(ViewState["id"]) : 0;
-                objWorker.ModifiedBy = objCommon.GetUserId();
+                objWorker.ModifiedBy = HttpContext.Current.Session["LoginSID"].ToString();
                
                 if (objWorker.WorkerId != 0 && objWorker.AlternateSvr != "0")
                 {
@@ -199,7 +199,7 @@ namespace LST
                 objUser.SlacId = (HdnAltId.Value != "") ? Convert.ToInt32(HdnAltId.Value.Trim()) : 0;//objCommon.GetEmpid(TxtAlternate.Text);
                 objUser.AlternateLSOFrom = (TxtFromDate.Text != "") ? Convert.ToDateTime(TxtFromDate.Text) : DateTime.MinValue;
                 objUser.AlternateLSOTo = (TxtToDate.Text != "") ? Convert.ToDateTime(TxtToDate.Text) : DateTime.MinValue;
-                objUser.CreatedBy = objCommon.GetUserId();
+                objUser.CreatedBy = HttpContext.Current.Session["LoginSID"].ToString();
                 //----Check if Active QLO or Deputy LSO
                 //----Check if training - esh130
                 //----check if the person added as alternate already exists            

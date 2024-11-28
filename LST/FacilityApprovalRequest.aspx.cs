@@ -125,7 +125,7 @@ namespace LST
 
 
 
-                objRoles.GetUserRole(objCommon.GetUserId().ToString(), FacilityId, 0);
+                objRoles.GetUserRole(HttpContext.Current.Session["LoginSID"].ToString(), FacilityId, 0);
 
 
                 //if (objRoles.IsSLSO || objRoles.IsLSOrAlt() || objRoles.IsProgramMgr || objRoles.IsESHCoordinator || objRoles.IsAdmin)
@@ -361,7 +361,7 @@ namespace LST
             Page.Validate();
             if (Page.IsValid)
             {
-                objRoles.GetUserRole(objCommon.GetUserId().ToString(), FacilityId, 0); ;
+                objRoles.GetUserRole(HttpContext.Current.Session["LoginSID"].ToString(), FacilityId, 0); ;
 
                 if (objRoles.IsLSOrAlt())
                 {
@@ -449,11 +449,11 @@ namespace LST
             objFacRequest.FacilityId = Convert.ToInt32(FacilityId);
             objFacRequest.IsSOPCompleted = (PnlSLSO.Visible) ? ((RblRevision.SelectedValue == "0") ? "Y" : "N") : "N";
             objFacRequest.IsAnnualCertCompleted = (PnlSLSO.Visible) ? ((RblCertification.SelectedValue == "0") ? "Y" : "N") : "N";
-            objFacRequest.CreatedBy = objCommon.GetUserId();
+            objFacRequest.CreatedBy = HttpContext.Current.Session["LoginSID"].ToString();
             string _comments = objCommon.ReplaceSC(TxtSLSOComments.Text.Trim());
          
 
-            int _requestId = objDml.CreateFacilityRequest(objFacRequest,_comments);
+            int _requestId = objDml.CreateFacilityRequest(objFacRequest,_comments); 
 
             if (_requestId != 0)
             {
@@ -473,7 +473,7 @@ namespace LST
            Business.FacilityApproval objFacApproval = new Business.FacilityApproval();
 
            objFacApproval.RequestId = RequestId;
-           objFacApproval.ApproverId = Convert.ToInt32(objCommon.GetUserId());
+           objFacApproval.ApproverId = Convert.ToInt32(HttpContext.Current.Session["LoginSID"]);
            objFacApproval.StatusId = statusId;
            objFacApproval.Comments = objCommon.ReplaceSC(TxtComments.Text);
            objFacApproval.ApproverType = approverType;

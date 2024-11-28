@@ -141,7 +141,7 @@ namespace LST.UserControls
                 else
                 {
                     LblMsg.Text = "";
-                    _result = objDml.UpdateSOP(_mapId, _dtSOP, objCommon.GetUserId());
+                    _result = objDml.UpdateSOP(_mapId, _dtSOP, HttpContext.Current.Session["LoginSID"].ToString());
                     if (_result != 0)
                     {
                         LblMsg.Text = "Error updating SOP review Date for this facility";
